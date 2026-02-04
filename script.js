@@ -25,6 +25,31 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // ===================================
+    // MOBILE MENU TOGGLE
+    // ===================================
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    // Open mobile menu
+    hamburger.addEventListener('click', () => {
+        mobileMenu.classList.add('active');
+    });
+
+    // Close mobile menu
+    mobileMenuClose.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+    });
+
+    // Close menu when clicking a link
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+    });
+
+    // ===================================
     // SMOOTH SCROLLING FOR NAVIGATION LINKS
     // ===================================
     const navLinks = document.querySelectorAll('a[href^="#"]');
