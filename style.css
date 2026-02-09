@@ -756,6 +756,16 @@ p {
   box-shadow: 0 12px 40px rgba(181, 114, 223, 0.5);
 }
 
+@media (max-width: 768px) {
+  .domain-card {
+    aspect-ratio: 4 / 3;
+  }
+
+  .domain-image {
+    height: 100%;
+  }
+}
+
 /* ===================================
    OVERVIEW SECTION
    =================================== */
@@ -893,15 +903,36 @@ p {
 }
 
 .location-map {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
+  flex: 1;
+  min-width: 300px;
+}
+
+.location-map iframe {
+  width: 100%;
   height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+  border: 0;
+  border-radius: var(--radius-lg);
+}
+
+.location-map .btn {
+  width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .location-map {
+    min-width: 100%;
+  }
+
+  .location-map iframe {
+    height: 250px;
+  }
+
+  .location-map .btn {
+    font-size: 0.9rem;
+    padding: 0.75rem 1.5rem;
+    margin-top: 1rem;
+  }
 }
 
 .map-placeholder {
