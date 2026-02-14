@@ -386,6 +386,30 @@ p {
   }
 }
 
+@keyframes glow-pulse {
+
+  0%,
+  100% {
+    text-shadow: 0 0 10px rgba(181, 114, 223, 0.8),
+      0 0 20px rgba(181, 114, 223, 0.6),
+      0 0 30px rgba(181, 114, 223, 0.4);
+  }
+
+  50% {
+    text-shadow: 0 0 20px rgba(248, 66, 250, 1),
+      0 0 30px rgba(248, 66, 250, 0.8),
+      0 0 40px rgba(248, 66, 250, 0.6);
+  }
+}
+
+/* Glowing Text */
+.glow-text {
+  color: var(--color-accent-primary);
+  font-weight: 600;
+  animation: glow-pulse 2s ease-in-out infinite;
+  text-align: center;
+}
+
 /* ===================================
    HAMBURGER MENU
    =================================== */
@@ -572,7 +596,10 @@ p {
 
 .hero-cta {
   margin-top: var(--spacing-lg);
-  animation: fadeInUp 1s ease 0.8s backwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
 }
 
 /* Floating Orbs */
@@ -1162,9 +1189,11 @@ p {
 
 .footer-social {
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: var(--spacing-sm);
-  margin: var(--spacing-md) 0;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  flex-wrap: wrap;
 }
 
 /* Instagram Follow Button */
