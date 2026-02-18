@@ -25,8 +25,11 @@ d:/Viki/Hack/
 ├── index.html          # Main webpage
 ├── style.css           # All styles & animations
 ├── script.js           # JavaScript functionality
-├── AXIOML LOGO.png     # Event logo
+├── AXIOML LOGO.png     # Event logo (navbar + footer)
 ├── mascot.jpeg         # Custom cursor image
+├── MediaPartner.png    # Eventopia sponsor logo
+├── PvsMA.png           # PVS Metals and Alloys sponsor logo
+├── bus-routes.pdf      # Transport service PDF
 └── AxioMLContext.md    # This file
 ```
 
@@ -43,28 +46,36 @@ d:/Viki/Hack/
 | Accent Secondary | `#4c017f` |
 | Accent Tertiary | `#f842fa` |
 | Text Primary | `#fefefe` |
+| Gold (Sponsor Label) | `#ffd700` |
 
-### 2. Sections
-- **Hero**: Logo, event details, animated Register button
+### 2. Sections (in page order)
+- **Hero**: Logo, event details, animated Register button, glowing "E-Certificates for all Participants" text
 - **Overview**: About AxioML'26
-- **Domains**: 5 cards (AI, AR/VR, ML Resilience, EdTech, Healthcare)
+- **Domains**: 5 cards (AI, AR/VR, ML Resilience, EdTech, Healthcare) with hover-reveal overlay
 - **FAQ**: 6 questions with glassmorphism cards
-- **Contact**: Coordinators (Dr. Famitha, Sakthivel K, Shreenidhi C U)
-- **Location**: Google Maps embed + directions
-- **Footer**: Instagram follow button, copyright
+- **Contact**: Faculty coordinator (Dr. Famitha) + Student coordinators (Sakthivel K, Shreenidhi C U)
+- **Sponsors**: Event sponsors with glassmorphism cards — Eventopia (Media Partner), PVS Metals and Alloys
+- **Location**: Google Maps embed + "Open in Google Maps" button + "Bus Routes" PDF button
+- **Footer**: Navigation links, Instagram Follow button, "@prathyusha_aiml" glowing handle, copyright
 
 ### 3. Animations
 | Animation | Element | Description |
 |-----------|---------|-------------|
 | `pulse` | Register button | Glowing shadow |
 | `shimmer` | Primary buttons | Sweeping highlight |
-| `font-cycle` | "Intelligence", "AI & ML" | Cycles through fonts |
+| `font-cycle` | "Intelligence", "AI & ML" | Cycles through Orbitron, Courier New, Georgia, Impact |
 | `float` | Hero logo | Gentle up/down movement |
+| `glow-pulse` | E-certificate text, Instagram handle | Purple ↔ pink text-shadow pulse |
 
 ### 4. Mobile Features
-- **Hamburger Menu**: Slides in from right on mobile (<768px)
-- **Responsive Grid**: Stacked layouts on small screens
+- **Hamburger Menu**: 3 spans animated, slides in fullscreen overlay from right (<768px)
+- **Responsive Grid**: Domain cards use `aspect-ratio: 4/3` on mobile, stacked layouts
+- **Responsive Map**: Reduced iframe height (250px) on mobile
 - **Custom Cursor**: Mascot follows mouse/touch
+
+### 5. Navigation Links
+All three nav areas (navbar, mobile menu, footer) contain:
+`Home | Overview | Domains | FAQ | Contact | Location | Sponsors | Register`
 
 ---
 
@@ -74,6 +85,7 @@ d:/Viki/Hack/
 | Registration Form | https://forms.gle/JUX38mZHQVxzCg3s9 |
 | Google Maps | https://maps.app.goo.gl/njFqowZLdssiXEQe8 |
 | Instagram | https://www.instagram.com/prathyusha_aiml |
+| Bus Routes | `bus-routes.pdf` (local file) |
 
 ---
 
@@ -94,13 +106,19 @@ d:/Viki/Hack/
 
 ---
 
+## Event Sponsors
+| Sponsor | Image File | Label |
+|---------|-----------|-------|
+| Eventopia | `MediaPartner.png` | Media Partner (gold italic text) |
+| PVS Metals and Alloys | `PvsMA.png` | — |
+
+---
+
 ## Deployment
 ```bash
-# Push changes
 git add .
 git commit -m "Description"
 git push
-
 # Site auto-deploys via GitHub Pages (main branch)
 ```
 
@@ -108,9 +126,12 @@ git push
 
 ## Development Notes
 - **Mobile breakpoint**: 768px
-- **CSS Variables**: Defined in `:root` at top of style.css
-- **Custom Cursor**: Uses `mascot.jpeg` with JS tracking
-- **Font Animation**: Cycles through Orbitron, Courier New, Georgia, Impact
+- **CSS Variables**: Defined in `:root` at top of `style.css`
+- **Custom Cursor**: Uses `mascot.jpeg` with JS tracking in `script.js`
+- **Font Animation**: `font-cycle` keyframe cycles through Orbitron → Courier New → Georgia → Impact
+- **Glow Animation**: `glow-pulse` keyframe alternates purple/pink text-shadow
+- **Sponsor Cards**: `max-width: 250px`, compact for scalability — easily add more sponsors
+- **Glassmorphism**: `var(--glass-bg)` + `backdrop-filter: blur(20px)` + `var(--glass-border)`
 
 ---
 
@@ -119,12 +140,17 @@ git push
 |-------|---------|
 | `.glass-card` | Glassmorphism effect |
 | `.btn-primary` | Gradient button with shimmer |
+| `.btn-secondary` | Outlined accent button |
 | `.nav-register-btn` | Animated navbar register |
 | `.scroll-text` | Font-cycling animation |
+| `.glow-text` | Purple glow-pulse text |
 | `.domain-card` | Hover-reveal domain cards |
 | `.contact-card` | Coordinator cards |
+| `.sponsor-card` | Sponsor logo cards |
+| `.sponsor-label` | Gold italic label (Media Partner) |
 | `.hamburger` | Mobile menu trigger |
-| `.mobile-menu` | Fullscreen mobile nav |
+| `.mobile-menu` | Fullscreen mobile nav overlay |
+| `.instagram-follow-btn` | Instagram gradient button |
 
 ---
 
@@ -136,4 +162,4 @@ git push
 
 ---
 
-*Last Updated: February 2026*
+*Last Updated: 18 February 2026*
