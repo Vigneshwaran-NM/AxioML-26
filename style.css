@@ -900,6 +900,9 @@ p {
   transition: all var(--transition-base);
   min-width: 180px;
   max-width: 250px;
+  text-decoration: none;
+  cursor: pointer;
+  display: block;
 }
 
 .sponsor-card:hover {
